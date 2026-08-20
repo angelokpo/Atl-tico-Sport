@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atlético Sport | Tienda Online | Sunchales</title>
-    <!-- Fuentes modernas estilo e-commerce -->
+    <!-- Fuentes modernas estilo e-commerce (Inter) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 1. TOP PROMO BAR (Estilo 47 Street) */
+        /* 1. TOP PROMO BAR */
         .top-promo-bar {
             background-color: var(--dark);
             color: var(--white);
@@ -188,6 +188,11 @@
             animation: fadeIn 0.8s ease-in-out;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .hero-tag {
             display: inline-block;
             background: var(--white);
@@ -320,14 +325,18 @@
             border-radius: 4px;
         }
 
-        .product-image span.icon-preview {
-            font-size: 3.5rem;
-            color: #94a3b8;
-            transition: transform 0.3s;
+        /* Estilos para las imágenes de producto reales */
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; /* Asegura que el producto se vea completo sin recortarse */
+            transition: transform 0.3s ease;
         }
 
-        .product-card:hover .icon-preview {
-            transform: scale(1.08);
+        .product-card:hover .product-image img {
+            transform: scale(1.05); /* Efecto de zoom suave al pasar el mouse */
         }
 
         .badge-tag {
@@ -342,6 +351,7 @@
             letter-spacing: 1px;
             padding: 4px 8px;
             border-radius: 2px;
+            z-index: 10;
         }
 
         .badge-tag.sale {
@@ -476,6 +486,7 @@
             z-index: 1000;
         }
 
+        /* Media Queries para Responsividad */
         @media(max-width: 1024px) {
             .products-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -487,6 +498,8 @@
             .hero-title { font-size: 2.2rem; }
             .nav-links { overflow-x: auto; justify-content: flex-start; padding: 10px 15px; }
             .store-spotlight { padding: 2rem; }
+            .products-grid { gap: 12px; }
+            .section-container { padding: 2rem 1rem; }
         }
     </style>
 </head>
@@ -508,7 +521,8 @@
             </div>
 
             <a href="#" class="brand-center">
-                <img src="logo.jpg" alt="Atlético Sport">
+                <!-- Tu Logo -->
+                <img src="logo.jpg" alt="Atlético Sport Sunchales">
             </a>
 
             <div class="header-actions">
@@ -572,59 +586,63 @@
         </div>
 
         <div class="products-grid">
-            <!-- Producto 1 -->
+            <!-- Producto 1: Remera -->
             <div class="product-card">
                 <div class="product-image">
                     <span class="badge-tag">Nuevo</span>
-                    <span class="icon-preview">👕</span>
+                    <!-- Tu imagen: remera.png -->
+                    <img src="remera.png" alt="Remera Adidas Training">
                 </div>
                 <div class="product-details">
-                    <span class="product-brand">Atlético Sport</span>
-                    <h3 class="product-title">Remera Oversize Training Pro</h3>
-                    <div class="product-price">$38.900</div>
-                    <div class="product-installments">6 cuotas sin interés de $6.483</div>
+                    <span class="product-brand">Adidas</span>
+                    <h3 class="product-title">Remera Training Pro 3 Tiras</h3>
+                    <div class="product-price">$45.500</div>
+                    <div class="product-installments">6 cuotas sin interés de $7.583</div>
                 </div>
             </div>
 
-            <!-- Producto 2 -->
+            <!-- Producto 2: Buzo -->
             <div class="product-card">
                 <div class="product-image">
                     <span class="badge-tag sale">25% OFF</span>
-                    <span class="icon-preview">🧥</span>
+                    <!-- Tu imagen: buzo.png -->
+                    <img src="buzo.png" alt="Buzo Hoodie">
                 </div>
                 <div class="product-details">
                     <span class="product-brand">Atlético Sport</span>
-                    <h3 class="product-title">Buzo Hoodie Urban Dry</h3>
-                    <div class="product-price">$62.500</div>
-                    <div class="product-installments">6 cuotas sin interés de $10.416</div>
+                    <h3 class="product-title">Buzo Hoodie Urban Comfort</h3>
+                    <div class="product-price">$72.000</div>
+                    <div class="product-installments">6 cuotas sin interés de $12.000</div>
                 </div>
             </div>
 
-            <!-- Producto 3 -->
+            <!-- Producto 3: Short -->
             <div class="product-card">
                 <div class="product-image">
                     <span class="badge-tag">Trending</span>
-                    <span class="icon-preview">🩳</span>
+                    <!-- Tu imagen: short.png -->
+                    <img src="short.png" alt="Short Deportivo">
                 </div>
                 <div class="product-details">
-                    <span class="product-brand">Atlético Sport</span>
-                    <h3 class="product-title">Short Running Dynamic 2 en 1</h3>
-                    <div class="product-price">$32.000</div>
-                    <div class="product-installments">3 cuotas sin interés de $10.666</div>
+                    <span class="product-brand">Nike</span>
+                    <h3 class="product-title">Short Flex Vent Max</h3>
+                    <div class="product-price">$38.900</div>
+                    <div class="product-installments">3 cuotas sin interés de $12.966</div>
                 </div>
             </div>
 
-            <!-- Producto 4 -->
+            <!-- Producto 4: Zapatillas -->
             <div class="product-card">
                 <div class="product-image">
                     <span class="badge-tag">Nuevo</span>
-                    <span class="icon-preview">👟</span>
+                    <!-- Tu imagen: zapas.png -->
+                    <img src="zapas.png" alt="Zapatillas Deportivas">
                 </div>
                 <div class="product-details">
                     <span class="product-brand">Atlético Sport</span>
-                    <h3 class="product-title">Zapatillas Stride Cushion</h3>
-                    <div class="product-price">$115.000</div>
-                    <div class="product-installments">6 cuotas sin interés de $19.166</div>
+                    <h3 class="product-title">Zapatillas Stride Cushion 2.0</h3>
+                    <div class="product-price">$125.000</div>
+                    <div class="product-installments">6 cuotas sin interés de $20.833</div>
                 </div>
             </div>
         </div>
