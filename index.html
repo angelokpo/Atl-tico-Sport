@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlético Sport | Tienda Online | Sunchales</title>
+    <!-- Fuentes modernas estilo e-commerce -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0b3fa8;
+            --dark: #111111;
+            --gray-light: #f5f5f7;
+            --gray-border: #e5e7eb;
+            --gray-text: #6b7280;
+            --white: #ffffff;
+            --sale-red: #e11d48;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 1. TOP PROMO BAR (Estilo 47 Street) */
+        .top-promo-bar {
+            background-color: var(--dark);
+            color: var(--white);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 9px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .promo-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 2. HEADER PRINCIPAL */
+        header {
+            position: sticky;
+            top: 0;
+            background: var(--white);
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .header-main {
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 12px 2rem;
+        }
+
+        /* Buscador */
+        .search-box {
+            position: relative;
+            width: 260px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px 14px 8px 36px;
+            background: var(--gray-light);
+            border: 1px solid transparent;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--dark);
+            background: var(--white);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.85rem;
+            color: var(--gray-text);
+        }
+
+        /* Logo Central */
+        .brand-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .brand-center img {
+            height: 58px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Accesos Header */
+        .header-actions {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-actions a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* 3. NAVEGACIÓN CATEGORÍAS */
+        nav {
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 28px;
+            padding: 10px 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            position: relative;
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.highlight {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a.sale {
+            color: var(--sale-red);
+        }
+
+        /* 4. HERO LOOKBOOK BANNER */
+        .hero-banner {
+            position: relative;
+            background: linear-gradient(135deg, #092147 0%, #0b3fa8 60%, #1e40af 100%);
+            color: var(--white);
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .hero-content {
+            max-width: 750px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-blue);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 4px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: var(--white);
+            color: var(--dark);
+            padding: 14px 38px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.2s;
+        }
+
+        .hero-btn:hover {
+            background: var(--dark);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* 5. VALUE PROPS (Cuotas, Envíos, Retiro) */
+        .value-props {
+            background-color: var(--gray-light);
+            border-bottom: 1px solid var(--gray-border);
+            padding: 24px 1.5rem;
+        }
+
+        .props-grid {
+            max-width: 1300px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .prop-item h4 {
+            font-size: 0.88rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .prop-item p {
+            font-size: 0.8rem;
+            color: var(--gray-text);
+        }
+
+        /* 6. GRILLA DE PRODUCTOS ESTILO LOOKBOOK */
+        .section-container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 4.5rem 2rem;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid var(--dark);
+            padding-bottom: 12px;
+        }
+
+        .section-head h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .section-head a {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-image {
+            position: relative;
+            background: #f0f2f5;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .product-image span.icon-preview {
+            font-size: 3.5rem;
+            color: #94a3b8;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover .icon-preview {
+            transform: scale(1.08);
+        }
+
+        .badge-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--dark);
+            color: var(--white);
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 8px;
+            border-radius: 2px;
+        }
+
+        .badge-tag.sale {
+            background: var(--sale-red);
+        }
+
+        .product-details {
+            padding: 14px 0;
+        }
+
+        .product-brand {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--gray-text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .product-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin: 4px 0 8px 0;
+            color: var(--dark);
+        }
+
+        .product-price {
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .product-installments {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* 7. LOCAL SUNCHALES BANNER */
+        .store-spotlight {
+            background: #0f172a;
+            color: var(--white);
+            border-radius: 8px;
+            padding: 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .store-spotlight h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 0.8rem;
+        }
+
+        .store-spotlight p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            max-width: 550px;
+        }
+
+        /* 8. FOOTER */
+        footer {
+            background: var(--white);
+            border-top: 1px solid var(--gray-border);
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h5 {
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            text-decoration: none;
+            color: var(--gray-text);
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul a:hover {
+            color: var(--dark);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray-border);
+            font-size: 0.78rem;
+            color: var(--gray-text);
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25d366;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+
+        @media(max-width: 1024px) {
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media(max-width: 640px) {
+            .header-main { grid-template-columns: 1fr auto; }
+            .search-box { display: none; }
+            .hero-title { font-size: 2.2rem; }
+            .nav-links { overflow-x: auto; justify-content: flex-start; padding: 10px 15px; }
+            .store-spotlight { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ticker Promocional -->
+    <div class="top-promo-bar">
+        <span class="promo-item">⚡ 3 y 6 Cuotas Sin Interés</span>
+        <span class="promo-item">📍 Retiro Gratis en Av. Independencia 69</span>
+        <span class="promo-item">🔥 Nueva Colección 2026</span>
+    </div>
+
+    <!-- Header Principal -->
+    <header>
+        <div class="header-main">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="¿Qué estás buscando?">
+            </div>
+
+            <a href="#" class="brand-center">
+                <img src="logo.jpg" alt="Atlético Sport">
+            </a>
+
+            <div class="header-actions">
+                <a href="#contacto">📍 Sunchales</a>
+                <a href="#">👤 Mi Cuenta</a>
+                <a href="#">🛒 (0)</a>
+            </div>
+        </div>
+
+        <!-- Menú Categorías -->
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="highlight">New In</a></li>
+                <li><a href="#">Remeras & Tops</a></li>
+                <li><a href="#">Buzos & Camperas</a></li>
+                <li><a href="#">Shorts & Calzas</a></li>
+                <li><a href="#">Zapatillas</a></li>
+                <li><a href="#">Accesorios</a></li>
+                <li><a href="#" class="sale">Sale %</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Banner / Lookbook -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <span class="hero-tag">Temporada 2026</span>
+            <h1 class="hero-title">Elevá tu juego al siguiente nivel</h1>
+            <p class="hero-subtitle">Descubrí la nueva línea de indumentaria deportiva y urbana con la máxima comodidad y estilo.</p>
+            <a href="#productos" class="hero-btn">Ver Colección</a>
+        </div>
+    </section>
+
+    <!-- Beneficios (Icons/Features) -->
+    <section class="value-props">
+        <div class="props-grid">
+            <div class="prop-item">
+                <h4>💳 3 y 6 Cuotas</h4>
+                <p>Con todas las tarjetas bancarias</p>
+            </div>
+            <div class="prop-item">
+                <h4>📍 Retiro en Sunchales</h4>
+                <p>Av. Independencia 69 sin costo</p>
+            </div>
+            <div class="prop-item">
+                <h4>🔄 Cambios Fáciles</h4>
+                <p>Tenés hasta 30 días para cambiar</p>
+            </div>
+            <div class="prop-item">
+                <h4>💬 Atención WhatsApp</h4>
+                <p>Asesoramiento personalizado</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grilla de Productos Destacados -->
+    <main class="section-container" id="productos">
+        <div class="section-head">
+            <h2>Lanzamientos & Tendencias</h2>
+            <a href="#">Ver todo →</a>
+        </div>
+
+        <div class="products-grid">
+            <!-- Producto 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="badge-tag">Nuevo</span>
+                    <span class="icon-preview">👕</span>
+                </div>
+                <div class="product-details">
+                    <span class="product-brand">Atlético Sport</span>
+                    <h3 class="product-title">Remera Oversize Training Pro</h3>
+                    <div class="product-price">$38.900</div>
+                    <div class="product-installments">6 cuotas sin interés de $6.483</div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="badge-tag sale">25% OFF</span>
+                    <span class="icon-preview">🧥</span>
+                </div>
+                <div class="product-details">
+                    <span class="product-brand">Atlético Sport</span>
+                    <h3 class="product-title">Buzo Hoodie Urban Dry</h3>
+                    <div class="product-price">$62.500</div>
+                    <div class="product-installments">6 cuotas sin interés de $10.416</div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="badge-tag">Trending</span>
+                    <span class="icon-preview">🩳</span>
+                </div>
+                <div class="product-details">
+                    <span class="product-brand">Atlético Sport</span>
+                    <h3 class="product-title">Short Running Dynamic 2 en 1</h3>
+                    <div class="product-price">$32.000</div>
+                    <div class="product-installments">3 cuotas sin interés de $10.666</div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <span class="badge-tag">Nuevo</span>
+                    <span class="icon-preview">👟</span>
+                </div>
+                <div class="product-details">
+                    <span class="product-brand">Atlético Sport</span>
+                    <h3 class="product-title">Zapatillas Stride Cushion</h3>
+                    <div class="product-price">$115.000</div>
+                    <div class="product-installments">6 cuotas sin interés de $19.166</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Banner Local Físico Sunchales -->
+        <div class="store-spotlight" id="contacto">
+            <div>
+                <h3>Vení a visitarnos</h3>
+                <p>Encontrá toda la colección, probate los talles y recibí la mejor atención personalizada en nuestro local.</p>
+                <p style="margin-top: 10px; color: #fff; font-weight: 600;">📍 Av. Independencia 69 — Sunchales, Santa Fe</p>
+            </div>
+            <div>
+                <a href="https://maps.google.com/?q=Av.+Independencia+69,+Sunchales,+Santa+Fe" target="_blank" class="hero-btn" style="background: var(--primary-blue); color: var(--white);">Abrir en Maps</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h5>Atlético Sport</h5>
+                <p style="color: var(--gray-text); font-size: 0.85rem; max-width: 280px; margin-bottom: 1rem;">Tu tienda de ropa deportiva y urbana de referencia en Sunchales y la región.</p>
+                <p style="color: var(--gray-text); font-size: 0.85rem;">Av. Independencia 69, Sunchales, Santa Fe.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Categorías</h5>
+                <ul>
+                    <li><a href="#">Remeras & Tops</a></li>
+                    <li><a href="#">Shorts & Calzas</a></li>
+                    <li><a href="#">Buzos & Camperas</a></li>
+                    <li><a href="#">Zapatillas</a></li>
+                    <li><a href="#">Promociones</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Ayuda</h5>
+                <ul>
+                    <li><a href="#">Guía de talles</a></li>
+                    <li><a href="#">Cambios y devoluciones</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Formas de pago</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Horarios del Local</h5>
+                <p style="color: var(--gray-text); font-size: 0.85rem; line-height: 1.6;">
+                    Lunes a Viernes:<br>
+                    08:30 a 12:30 | 16:30 a 20:30 hs.<br><br>
+                    Sábados:<br>
+                    09:00 a 13:00 | 17:00 a 20:30 hs.
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Atlético Sport — Todos los derechos reservados. Sunchales, Santa Fe, Argentina.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Flotante -->
+    <a href="https://wa.me/" class="whatsapp-float" target="_blank">
+        💬 ¿Te ayudamos?
+    </a>
+
+</body>
+</html>
